@@ -1,15 +1,19 @@
 const API = "https://api.github.com/users/";
 
-async function Buscar(){
-    const response = await fetch(API + 'HaroldSPT')
-    const data = await response.json()
-    console.log(data)
-}
-
 const app = Vue.createApp({
     data() {
         return {
-          message: 'Hello Vue!'
+          busqueda: null,
+          result: null
         }
-      } 
-}) //montamos esta info en el div app
+      },
+    //La palabra function ya no es necesaria pues se usa un método
+    methods: {
+      async Buscar() {
+        const response = await fetch(API + this.busqueda)
+        const data = await response.json()
+        console.log(data)
+        this.result = true
+      }
+    }
+})
