@@ -28,15 +28,15 @@
 
             <!-- Result -->
             <div class="result" v-if="result">
-                <h2 class="result__name">Harold</h2>
-                <img src="bu.png" alt="" class="result__avatar">
-                <p class="result__bio">Aprendiz exitoso con texto de relleno para probar algo</p>
+                <h2 class="result__name">{{result.name}}</h2>
+                <img v-bind:src="result.avatar_url" alt="" class="result__avatar">
+                <p class="result__bio">{{result.bio}}</p>
                 <br>
-                <a href="https://www.google.com">Enlace</a>
+                <a href="google.com">Enlace</a>
             </div>
-
+            <p v-else>Esperando por la búsqueda</p>
             <!-- Error -->
-            <div class="result__error"></div>
+            <div v-if="error" class="result__error">ERROR</div>
         </article>
     </div>
     <script src="js/main.js"></script>
